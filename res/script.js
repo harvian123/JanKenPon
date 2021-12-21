@@ -18,6 +18,7 @@ if(localStorage.getItem("skorKen")){
     skorKen = localStorage.getItem("skorKen");
     displaySkorKen.innerHTML = skorKen;
 }
+
 if(localStorage.getItem("skorPlayer")){
     skorPlayer = localStorage.getItem("skorPlayer");
     displaySkorPlayer.innerHTML = skorPlayer;
@@ -30,15 +31,15 @@ startGame.addEventListener("click", ()=>{
 
 batu.addEventListener("click", ()=>{
     janken(0)
-})
+});
 
 gunting.addEventListener("click", ()=>{
     janken(1)
-})
+});
 
 kertas.addEventListener("click", ()=>{
     janken(2)
-})
+});
 
 reset.addEventListener("click", ()=>{
     if(confirm("Ini akan memulai ulang permainan, Anda yakin?")){
@@ -48,9 +49,11 @@ reset.addEventListener("click", ()=>{
         displaySkorPlayer.innerHTML = skorPlayer;
         localStorage.clear();
     }
-})
+});
+
 function janken(tangan){
     let jariKen = Math.floor(Math.random() * 3);
+
     switch(jariKen){
         case 0 :
             ken.style.backgroundImage = "url(res/ken-batu.png)";
@@ -64,16 +67,17 @@ function janken(tangan){
     }
 
     ken.classList.remove("goyang");
+
     switch(tangan){
         case 0:
             if(jariKen == 0){
                 result("draw");
             }
             else if(jariKen == 1){
-                result("player")
+                result("player");
             }
             else{
-                result("ken")
+                result("ken");
             }
             break;
         case 1:
@@ -81,10 +85,10 @@ function janken(tangan){
                 result("ken");
             }
             else if(jariKen == 1){
-                result("draw")
+                result("draw");
             }
             else{
-                result("player")
+                result("player");
             }
             break;
         case 2:
@@ -92,27 +96,28 @@ function janken(tangan){
                 result("player");
             }
             else if(jariKen == 1){
-                result("ken")
+                result("ken");
             }
             else{
-                result("draw")
+                result("draw");
             }
             break;
     }
 }
 
 function result(who){
-    clearTimeout(timeOut)
+    clearTimeout(timeOut);
+
     switch(who) {
-        case "ken" :
+        case "ken":
             skorKen++;
+            localStorage.setItem("skorKen", skorKen);
             displaySkorKen.innerHTML = skorKen;
-            skorKen = localStorage.getItem("skorKen");
             console.log("Ninja Ken Menang");
             break;
-        case "player" :
+        case "player":
             skorPlayer++;
-            skorPlayer = localStorage.getItem("skorPlayer");
+            localStorage.setItem("skorPlayer", skorPlayer);
             displaySkorPlayer.innerHTML = skorPlayer;
             console.log("Anda Menang");
             break;
@@ -120,6 +125,7 @@ function result(who){
             console.log("Seri");
             break;
     }
+
     timeOut = setTimeout(()=>{
         ken.style.removeProperty("background-image")
         ken.classList.add("goyang")

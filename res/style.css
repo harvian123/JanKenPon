@@ -17,7 +17,7 @@
 * {
     box-sizing: border-box;
     text-decoration: none;
-    outline:none !important;
+    outline: none !important;
 }
 
 body{
@@ -109,7 +109,7 @@ button{
     background-size: contain;
 }
 
-goyang{
+.goyang{
     animation: ninjawiggle .75s infinite;
 }
 
@@ -128,6 +128,7 @@ goyang{
     border-radius: 0 30px 30px 0;
     box-shadow: 0 5px 10px #aaa;
 }
+
 .skor span{
     display:block;
     padding-bottom:20px;
@@ -138,9 +139,12 @@ goyang{
     padding:20px 0 0;
     border-top:solid 1px #ddd;
 }
-.skor .skor-ken, .skor .skor-player{
+
+.skor .skor-ken,
+.skor .skor-player{
     font-weight: bold;
 }
+
 .pilih{
     position: fixed;
     bottom:0;
@@ -163,9 +167,11 @@ goyang{
     border-radius:50px;
     box-shadow: - 8px 0 #aaa;
 }
+
 .pilih button.disabled{
     filter:grayscale(100%)
 }
+
 .pilih button+button{
     margin-left: 10px;
 }
@@ -174,14 +180,17 @@ goyang{
     transform:translateY(8px);
     box-shadow: none;
 }
+
 .pilih #batu{
     background : url(player-batu.png) center center no-repeat;
     background-size:contain;
 }
+
 .pilih #gunting{
     background : url(player-gunting.png) center center no-repeat;
     background-size:contain;
 }
+
 .pilih #kertas{
     background : url(player-kertas.png) center center no-repeat;
     background-size:contain;
@@ -199,6 +208,7 @@ goyang{
     border:dashed 2px #6869a1;
     border-radius: 50px;
 }
+
 @media(min-width:500px){
     .splash .center{
         padding-top:240px;
